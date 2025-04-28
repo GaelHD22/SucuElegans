@@ -1,9 +1,12 @@
 /* 0) Reset y overflow */
 html, body {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 /* 1) Tipografía global */
 body {
@@ -29,9 +32,11 @@ body {
   color: #333;
   text-decoration: none;
 }
-.header nav a:hover { opacity: 0.8; }
+.header nav a:hover {
+  opacity: 0.8;
+}
 
-/* 3) Hero con overlay crema */
+/* 3) Hero con overlay tenue */
 .hero {
   position: relative; width: 100%; height: 100vh; overflow: hidden;
 }
@@ -47,18 +52,22 @@ body {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
-  background: rgba(255,248,240,0.9); /* crema semitransparente */
+  /* Overlay ahora muy transparente para dejar ver el fondo */
+  background: rgba(255,248,240,0.3);
   padding: 20px;
 }
 .overlay h1 {
   color: #333;
   font-size: 4rem;
   margin-bottom: 20px;
+  /* Ayuda de legibilidad en fondo variable */
+  text-shadow: 0 2px 4px rgba(255,255,255,0.7);
 }
 .overlay p {
   color: #333;
   font-size: 1.25rem;
   margin-bottom: 30px;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.7);
 }
 .btn-hero {
   background: #FF6F61;
@@ -103,7 +112,9 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.producto img { width: 100%; display: block; }
+.producto img {
+  width: 100%; display: block;
+}
 .producto h3 {
   color: #333; font-size: 1.4rem; margin: 15px;
 }
@@ -148,16 +159,25 @@ footer {
   .logo { font-size: 1.8rem; }
   .header nav a { font-size: 1.1rem; margin-left: 20px; }
 
-  .hero { height: auto; display: flex; flex-direction: column; }
-  .hero-img { position: relative; height: auto; }
+  .hero {
+    height: auto; display: flex; flex-direction: column;
+  }
+  .hero-img {
+    position: relative; height: auto;
+  }
   .overlay {
-    background: #fff8f0;
+    background: #fff8f0; /* en móvil mantén crema sólida */
     align-items: flex-start;
   }
-  .overlay h1 { font-size: 2rem; margin-bottom: 10px; }
-  .overlay p { font-size: 1rem; margin-bottom: 20px; }
-  .btn-hero { padding: 10px 20px; font-size: 1rem; }
-
-  .catalogo h2, .comprar h2 { font-size: 2rem; }
-  .header nav { display: flex; flex-wrap: wrap; gap: 10px; }
+  .overlay h1 {
+    font-size: 2rem; margin-bottom: 10px;
+    text-shadow: none;
+  }
+  .overlay p {
+    font-size: 1rem; margin-bottom: 20px;
+    text-shadow: none;
+  }
+  .btn-hero {
+    padding: 10px 20px; font-size: 1rem;
+  }
 }
