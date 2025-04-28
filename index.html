@@ -2,10 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Viewport: bloquea zoom OUT (alejar) pero permite zoom IN -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="theme-color" content="#FF6F61">
   <title>SucuElegans</title>
 
-  <!-- Fuentes -->
+  <!-- Fuentes premium -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link 
     href="https://fonts.googleapis.com/css2?
@@ -14,10 +16,11 @@
       display=swap" 
     rel="stylesheet">
 
-  <!-- Apunta SOLO a styles.css -->
+  <!-- Estilos principales -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <header class="header">
     <a href="#" class="logo">SucuElegans</a>
     <button class="nav-toggle" aria-label="Abrir menú"><span class="hamburger"></span></button>
@@ -72,7 +75,14 @@
   <script>
     const toggle = document.querySelector('.nav-toggle');
     const nav    = document.querySelector('.nav');
+
     toggle.addEventListener('click', () => nav.classList.toggle('nav--open'));
+
+    // Cierra el menú al cambiar tamaño/orientación
+    window.addEventListener('resize', ()=> nav.classList.remove('nav--open'));
+    window.addEventListener('orientationchange', ()=> nav.classList.remove('nav--open'));
+    window.addEventListener('gesturestart', ()=> nav.classList.remove('nav--open'));
   </script>
+
 </body>
 </html>
