@@ -7,7 +7,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <!-- Cache-bust con ?v=2 para forzar CSS fresco -->
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 
@@ -21,12 +22,10 @@
   </header>
 
   <section class="hero">
-    <!-- Imagen como <img> para object-fit -->
     <img
       src="imagenes/suculentaportada.jpg"
       alt="Suculenta portada"
       class="hero-img">
-    <!-- Overlay para desktop y bloque de texto en móvil -->
     <div class="overlay">
       <h1>Elegancia Natural<br>en Cada Detalle</h1>
       <p>Transforma tus espacios con suculentas premium en macetas únicas.</p>
