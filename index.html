@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#FF6F61">
   <title>SucuElegans</title>
-  <!-- Preconexión y fuentes -->
+
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link 
     href="https://fonts.googleapis.com/css2?
@@ -13,16 +13,14 @@
       family=Montserrat:wght@400;600&
       display=swap" 
     rel="stylesheet">
-  <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css?v=8">
+
+  <!-- Apunta SOLO a styles.css -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <header class="header">
     <a href="#" class="logo">SucuElegans</a>
-    <button class="nav-toggle" aria-label="Abrir menú">
-      <span class="hamburger"></span>
-    </button>
+    <button class="nav-toggle" aria-label="Abrir menú"><span class="hamburger"></span></button>
     <nav class="nav">
       <ul class="nav__list">
         <li><a href="#catalogo">Catálogo</a></li>
@@ -72,13 +70,9 @@
   </footer>
 
   <script>
-    // Toggle menú en móvil
     const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('nav--open');
-    });
+    const nav    = document.querySelector('.nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('nav--open'));
   </script>
-
 </body>
 </html>

@@ -22,16 +22,12 @@ body {
   line-height: 1.5;
 }
 
-/* Header */
+/* HEADER */
 .header {
-  position: sticky; top: 0;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  z-index: 100;
+  position: sticky; top: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.5rem; background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px); z-index: 100;
 }
 .logo {
   font-family: var(--font-heading);
@@ -40,39 +36,27 @@ body {
   text-decoration: none;
 }
 .nav-toggle {
-  background: none; border: none;
-  cursor: pointer;
-  display: block;
+  background: none; border: none; cursor: pointer;
 }
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  width: 24px; height: 2px;
-  background: var(--color-dark);
-  display: block;
-  position: relative;
-  transition: 0.3s;
+  width: 24px; height: 2px; background: var(--color-dark);
+  display: block; position: relative; transition: 0.3s;
 }
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
-}
-.hamburger::before { top: -8px; }
-.hamburger::after { top: 8px; }
+.hamburger::before { content: ''; position: absolute; top: -8px; }
+.hamburger::after  { content: ''; position: absolute; top:  8px; }
 
-/* Nav */
 .nav {
-  position: absolute; top: 100%;
-  right: 0; background: var(--color-light);
-  width: 200px; transform: translateX(100%);
+  position: absolute; top: 100%; right: 0;
+  width: 200px; background: var(--color-light);
+  transform: translateX(100%);
   transition: transform 0.3s ease;
   box-shadow: -2px 4px 10px rgba(0,0,0,0.1);
 }
 .nav--open { transform: translateX(0); }
 .nav__list {
-  list-style: none;
-  padding: 1rem;
+  list-style: none; padding: 1rem;
 }
 .nav__list li + li { margin-top: 1rem; }
 .nav__list a {
@@ -83,13 +67,12 @@ body {
   font-weight: 600;
 }
 
-/* Hero */
+/* HERO */
 .hero {
   height: 100vh;
   background: url('imagenes/suculentaportada.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center; justify-content: center;
   position: relative;
+  display: flex; align-items: center; justify-content: center;
 }
 .hero::before {
   content: '';
@@ -97,42 +80,34 @@ body {
   background: rgba(255,248,240,0.4);
 }
 .hero__content {
-  position: relative;
-  text-align: center;
-  padding: 1rem;
-  z-index: 2;
+  position: relative; z-index: 2; text-align: center; padding: 1rem;
 }
 .hero__content h1 {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 2.5rem; margin-bottom: .75rem;
   color: var(--color-dark);
 }
 .hero__content p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 1rem; margin-bottom: 1.5rem;
   color: var(--color-dark);
 }
 .btn {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: 0.3s;
+  display: inline-block; text-decoration: none;
+  font-weight: 600; border-radius: 8px; transition: 0.3s;
 }
 .btn--hero {
   background: var(--color-primary);
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  padding: .75rem 1.5rem;
   font-size: 1rem;
 }
 .btn--hero:hover {
-  background: darken(var(--color-primary), 10%);
+  background: #e65b50;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Catálogo */
+/* CATÁLOGO */
 .catalogo {
   padding: 3rem 1rem;
   text-align: center;
@@ -140,8 +115,7 @@ body {
 }
 .catalogo h2 {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 2rem; margin-bottom: 2rem;
   color: var(--color-dark);
 }
 .productos {
@@ -163,23 +137,19 @@ body {
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 .producto img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
+  width: 100%; height: 160px; object-fit: cover;
 }
 .producto h3 {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  margin: 0.75rem;
+  font-size: 1.25rem; margin: .75rem;
   color: var(--color-dark);
 }
 .producto p {
-  font-size: 1rem;
-  margin: 0 0.75rem 1rem;
+  font-size: 1rem; margin: 0 .75rem 1rem;
   color: var(--color-dark);
 }
 
-/* Comprar */
+/* COMPRAR */
 .comprar {
   padding: 3rem 1rem;
   text-align: center;
@@ -187,49 +157,45 @@ body {
 }
 .comprar h2 {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem; margin-bottom: 1.5rem;
   color: var(--color-dark);
 }
 .btn--buy {
   background: var(--color-primary);
   color: #fff;
-  padding: 0.75rem 2rem;
+  padding: .75rem 2rem;
   font-size: 1.1rem;
 }
 .btn--buy:hover {
-  background: darken(var(--color-primary), 10%);
+  background: #e65b50;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Footer */
+/* FOOTER */
 .footer {
   background: #f0f0f0;
   text-align: center;
   padding: 2rem 1rem;
-  font-size: 0.9rem;
+  font-size: .9rem;
   color: var(--color-dark);
 }
 
-/* Media Queries para escritorio */
+/* DESKTOP */
 @media (min-width: 768px) {
   .nav {
     position: static; transform: none;
     background: transparent; box-shadow: none;
-    display: block !important;
   }
   .nav__list {
-    display: flex; gap: 2rem;
-    padding: 0;
+    display: flex; gap: 2rem; padding: 0;
   }
   .nav-toggle { display: none; }
 
   .hero__content h1 { font-size: 3.5rem; }
-  .hero__content p { font-size: 1.25rem; }
+  .hero__content p  { font-size: 1.25rem; }
 
   .catalogo { padding: 4rem 2rem; }
   .comprar { padding: 4rem 2rem; }
-
-  .footer { padding: 3rem 1rem; }
+  .footer  { padding: 3rem 1rem; }
 }
