@@ -7,12 +7,10 @@
 }
 
 * {
-  margin: 0; padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 html {
-  scroll-behavior: smooth;
-  font-size: 16px;
+  scroll-behavior: smooth; font-size: 16px;
 }
 body {
   font-family: var(--font-base);
@@ -26,8 +24,10 @@ body {
 .header {
   position: sticky; top: 0; width: 100%;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 1.5rem; background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(6px); z-index: 100;
+  padding: 1rem 1.5rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
+  z-index: 100;
 }
 .logo {
   font-family: var(--font-heading);
@@ -47,6 +47,7 @@ body {
 .hamburger::before { content: ''; position: absolute; top: -8px; }
 .hamburger::after  { content: ''; position: absolute; top:  8px; }
 
+/* NAV */
 .nav {
   position: absolute; top: 100%; right: 0;
   width: 200px; background: var(--color-light);
@@ -75,8 +76,7 @@ body {
   display: flex; align-items: center; justify-content: center;
 }
 .hero::before {
-  content: '';
-  position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: rgba(255,248,240,0.4);
 }
 .hero__content {
@@ -110,8 +110,7 @@ body {
 /* CATÁLOGO */
 .catalogo {
   padding: 3rem 1rem;
-  text-align: center;
-  background: #fff;
+  text-align: center; background: #fff;
 }
 .catalogo h2 {
   font-family: var(--font-heading);
@@ -121,16 +120,11 @@ body {
 .productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 1.5rem; max-width: 1000px; margin: 0 auto;
 }
 .producto {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: 0.3s;
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: 0.3s;
 }
 .producto:hover {
   transform: translateY(-4px);
@@ -151,8 +145,7 @@ body {
 
 /* COMPRAR */
 .comprar {
-  padding: 3rem 1rem;
-  text-align: center;
+  padding: 3rem 1rem; text-align: center;
   background: var(--color-light);
 }
 .comprar h2 {
