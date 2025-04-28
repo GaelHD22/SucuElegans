@@ -1,16 +1,21 @@
-/* Reset y fuentes */
-* {
+/* 0) Quitar overflow horizontal y reset general */
+html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+}
+* {
   box-sizing: border-box;
 }
+
+/* 1) Tipografía y fondo */
 body {
   font-family: 'Playfair Display', serif;
   color: #333;
   background: #f5f5f5;
 }
 
-/* Header */
+/* 2) Header */
 .header {
   position: absolute;
   top: 0; left: 0; width: 100%;
@@ -34,7 +39,7 @@ body {
   opacity: 0.8;
 }
 
-/* Hero corregido */
+/* 3) Hero */
 .hero {
   position: relative;
   width: 100%;
@@ -42,26 +47,25 @@ body {
   overflow: hidden;
 }
 .hero-img {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: 1;
 }
 .overlay {
   position: relative;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
   padding: 20px;
 }
 .overlay h1 {
@@ -90,21 +94,21 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Secciones */
+/* 4) Secciones catálogos / beneficios / CTA */
 .catalogo, .beneficios, .comprar {
+  background: #fff;
   padding: 60px 20px;
   text-align: center;
-  background: #fff;
 }
 .catalogo h2, .beneficios h2, .comprar h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
 }
 
-/* Catálogo */
+/* Catálogo: grid de productos */
 .productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
@@ -134,7 +138,7 @@ body {
   box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
-/* Beneficios */
+/* Beneficios: lista con check */
 .beneficios ul {
   list-style: none;
   max-width: 800px;
@@ -153,7 +157,7 @@ body {
   color: #FF6F61;
 }
 
-/* CTA comprar */
+/* CTA Comprar final */
 .btn-compra {
   background: #FF6F61;
   color: #fff;
@@ -180,16 +184,47 @@ footer {
   color: #777;
 }
 
-/* Responsivo */
+/* 5) Media Queries para móviles */
 @media (max-width: 768px) {
+  /* Header más compacto */
+  .header {
+    padding: 10px 20px;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .header nav a {
+    font-size: 0.9rem;
+    margin-left: 15px;
+  }
+
+  /* Hero: convertimos en bloque vertical */
+  .hero {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-img {
+    position: relative;
+    height: auto;
+  }
+  .overlay {
+    position: relative;
+    background: #fff8f0;
+    color: #333;
+    align-items: flex-start;
+  }
   .overlay h1 {
-    font-size: 2.5rem;
+    color: #333;
+    font-size: 2rem;
   }
   .overlay p {
+    color: #555;
     font-size: 1rem;
+    margin-bottom: 20px;
   }
   .btn-hero {
-    padding: 12px 25px;
+    padding: 10px 20px;
     font-size: 1rem;
   }
 }
