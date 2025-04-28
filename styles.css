@@ -1,12 +1,10 @@
-/* 0) Quitar overflow horizontal y reset general */
+/* 0) Reset y quitar scroll horizontal */
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 /* 1) Tipografía y fondo */
 body {
@@ -58,13 +56,12 @@ body {
 .overlay {
   position: relative;
   z-index: 2;
+  width: 100%; height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
-  height: 100%;
   background: rgba(0,0,0,0.4);
   padding: 20px;
 }
@@ -94,7 +91,7 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* 4) Secciones catálogos / beneficios / CTA */
+/* 4) Secciones */
 .catalogo, .beneficios, .comprar {
   background: #fff;
   padding: 60px 20px;
@@ -105,7 +102,7 @@ body {
   margin-bottom: 30px;
 }
 
-/* Catálogo: grid de productos */
+/* Catálogo: grid */
 .productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -138,7 +135,7 @@ body {
   box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
-/* Beneficios: lista con check */
+/* Beneficios */
 .beneficios ul {
   list-style: none;
   max-width: 800px;
@@ -157,7 +154,7 @@ body {
   color: #FF6F61;
 }
 
-/* 5) CTA Comprar final */
+/* CTA Comprar */
 .btn-compra {
   background: #FF6F61;
   color: #fff;
@@ -184,7 +181,7 @@ footer {
   color: #777;
 }
 
-/* 6) Media Queries para móviles */
+/* 5) Media Queries para móvil */
 @media (max-width: 768px) {
   /* Header compacto */
   .header {
@@ -198,7 +195,7 @@ footer {
     margin-left: 15px;
   }
 
-  /* Hero en bloque vertical */
+  /* Hero vertical para móvil */
   .hero {
     height: auto;
     display: flex;
@@ -216,12 +213,13 @@ footer {
     padding: 20px;
   }
   .overlay h1 {
-    color: #333;
     font-size: 2rem;
+    color: #333;
     margin-bottom: 10px;
   }
   .overlay p {
     font-size: 1rem;
+    color: #333;
     margin-bottom: 20px;
   }
   .btn-hero {
