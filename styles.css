@@ -1,183 +1,235 @@
-/* 0) Reset y overflow */
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+:root {
+  --color-primary: #FF6F61;
+  --color-light: #fff8f0;
+  --color-dark: #333;
+  --font-heading: 'Playfair Display', serif;
+  --font-base: 'Montserrat', sans-serif;
 }
+
 * {
+  margin: 0; padding: 0;
   box-sizing: border-box;
 }
-
-/* 1) Tipografía global */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-base);
   background: #f5f5f5;
-  color: #333;
+  color: var(--color-dark);
+  overflow-x: hidden;
+  line-height: 1.5;
 }
 
-/* 2) Header */
+/* Header */
 .header {
-  position: absolute; top: 0; left: 0; width: 100%;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 20px 40px; z-index: 10;
+  position: sticky; top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  z-index: 100;
 }
 .logo {
-  font-size: 2.2rem;
-  color: #333;
-}
-.header nav a {
-  margin-left: 30px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #333;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-dark);
   text-decoration: none;
 }
-.header nav a:hover {
-  opacity: 0.8;
+.nav-toggle {
+  background: none; border: none;
+  cursor: pointer;
+  display: block;
 }
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 24px; height: 2px;
+  background: var(--color-dark);
+  display: block;
+  position: relative;
+  transition: 0.3s;
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
 
-/* 3) Hero con overlay tenue */
-.hero {
-  position: relative; width: 100%; height: 100vh; overflow: hidden;
+/* Nav */
+.nav {
+  position: absolute; top: 100%;
+  right: 0; background: var(--color-light);
+  width: 200px; transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -2px 4px 10px rgba(0,0,0,0.1);
 }
-.hero-img {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  z-index: 1;
+.nav--open { transform: translateX(0); }
+.nav__list {
+  list-style: none;
+  padding: 1rem;
 }
-.overlay {
-  position: relative; z-index: 2;
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  /* Overlay ahora muy transparente para dejar ver el fondo */
-  background: rgba(255,248,240,0.3);
-  padding: 20px;
-}
-.overlay h1 {
-  color: #333;
-  font-size: 4rem;
-  margin-bottom: 20px;
-  /* Ayuda de legibilidad en fondo variable */
-  text-shadow: 0 2px 4px rgba(255,255,255,0.7);
-}
-.overlay p {
-  color: #333;
-  font-size: 1.25rem;
-  margin-bottom: 30px;
-  text-shadow: 0 1px 3px rgba(255,255,255,0.7);
-}
-.btn-hero {
-  background: #FF6F61;
-  color: #fff;
-  padding: 15px 35px;
+.nav__list li + li { margin-top: 1rem; }
+.nav__list a {
+  font-family: var(--font-base);
+  color: var(--color-dark);
+  text-decoration: none;
   font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-.btn-hero:hover {
-  background: #e65b50;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  font-weight: 600;
 }
 
-/* 4) Secciones */
-.catalogo, .comprar {
-  background: #fff;
-  padding: 60px 20px;
+/* Hero */
+.hero {
+  height: 100vh;
+  background: url('imagenes/suculentaportada.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center; justify-content: center;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,248,240,0.4);
+}
+.hero__content {
+  position: relative;
   text-align: center;
+  padding: 1rem;
+  z-index: 2;
 }
-.catalogo h2, .comprar h2 {
-  color: #333;
+.hero__content h1 {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 0.75rem;
+  color: var(--color-dark);
+}
+.hero__content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-dark);
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn--hero {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+.btn--hero:hover {
+  background: darken(var(--color-primary), 10%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* 5) Grid de productos */
+/* Catálogo */
+.catalogo {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #fff;
+}
+.catalogo h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--color-dark);
+}
 .productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 30px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .producto {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.producto img {
-  width: 100%; display: block;
-}
-.producto h3 {
-  color: #333; font-size: 1.4rem; margin: 15px;
-}
-.producto p {
-  color: #333; font-size: 1.2rem; margin: 0 15px 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: 0.3s;
 }
 .producto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.producto h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin: 0.75rem;
+  color: var(--color-dark);
+}
+.producto p {
+  font-size: 1rem;
+  margin: 0 0.75rem 1rem;
+  color: var(--color-dark);
 }
 
-/* 6) CTA Comprar */
-.btn-compra {
-  background: #FF6F61;
+/* Comprar */
+.comprar {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: var(--color-light);
+}
+.comprar h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-dark);
+}
+.btn--buy {
+  background: var(--color-primary);
   color: #fff;
-  padding: 18px 40px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
 }
-.btn-compra:hover {
-  background: #e65b50;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.btn--buy:hover {
+  background: darken(var(--color-primary), 10%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* 7) Footer */
-footer {
+/* Footer */
+.footer {
   background: #f0f0f0;
   text-align: center;
-  padding: 20px;
+  padding: 2rem 1rem;
   font-size: 0.9rem;
-  color: #333;
+  color: var(--color-dark);
 }
 
-/* 8) Responsivo */
-@media (max-width: 768px) {
-  .header { padding: 10px 20px; }
-  .logo { font-size: 1.8rem; }
-  .header nav a { font-size: 1.1rem; margin-left: 20px; }
+/* Media Queries para escritorio */
+@media (min-width: 768px) {
+  .nav {
+    position: static; transform: none;
+    background: transparent; box-shadow: none;
+    display: block !important;
+  }
+  .nav__list {
+    display: flex; gap: 2rem;
+    padding: 0;
+  }
+  .nav-toggle { display: none; }
 
-  .hero {
-    height: auto; display: flex; flex-direction: column;
-  }
-  .hero-img {
-    position: relative; height: auto;
-  }
-  .overlay {
-    background: #fff8f0; /* en móvil mantén crema sólida */
-    align-items: flex-start;
-  }
-  .overlay h1 {
-    font-size: 2rem; margin-bottom: 10px;
-    text-shadow: none;
-  }
-  .overlay p {
-    font-size: 1rem; margin-bottom: 20px;
-    text-shadow: none;
-  }
-  .btn-hero {
-    padding: 10px 20px; font-size: 1rem;
-  }
+  .hero__content h1 { font-size: 3.5rem; }
+  .hero__content p { font-size: 1.25rem; }
+
+  .catalogo { padding: 4rem 2rem; }
+  .comprar { padding: 4rem 2rem; }
+
+  .footer { padding: 3rem 1rem; }
 }

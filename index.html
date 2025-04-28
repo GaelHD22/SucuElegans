@@ -3,61 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FF6F61">
   <title>SucuElegans</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+  <!-- Preconexión y fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link 
+    href="https://fonts.googleapis.com/css2?
+      family=Playfair+Display:wght@400;700&
+      family=Montserrat:wght@400;600&
+      display=swap" 
     rel="stylesheet">
-  <!-- Cache-bust v6 -->
-  <link rel="stylesheet" href="styles.css?v=6">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
   <header class="header">
-    <div class="logo">SucuElegans</div>
-    <nav>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#comprar">Comprar</a>
+    <a href="#" class="logo">SucuElegans</a>
+    <button class="nav-toggle" aria-label="Abrir menú">
+      <span class="hamburger"></span>
+    </button>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#comprar">Comprar</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <img src="imagenes/suculentaportada.jpg" alt="Suculenta portada" class="hero-img">
-    <div class="overlay">
-      <h1>Elegancia Natural<br>en Cada Detalle</h1>
-      <p>Transforma tus espacios con suculentas premium en macetas únicas.</p>
-      <a href="#catalogo" class="btn-hero">Comprar ahora</a>
-    </div>
-  </section>
-
-  <section id="catalogo" class="catalogo">
-    <h2>Catálogo</h2>
-    <div class="productos">
-      <div class="producto">
-        <img src="imagenes/Echeveria.jpg" alt="Echeveria">
-        <h3>Echeveria</h3>
-        <p>$150 MXN</p>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero__content">
+        <h1>Elegancia Natural<br>en Cada Detalle</h1>
+        <p>Transforma tus espacios con suculentas premium en macetas únicas.</p>
+        <a href="#catalogo" class="btn btn--hero">Comprar ahora</a>
       </div>
-      <div class="producto">
-        <img src="imagenes/Combo.jpg" alt="Combo de suculentas">
-        <h3>Combo de suculentas</h3>
-        <p>$180 MXN</p>
-      </div>
-      <div class="producto">
-        <img src="imagenes/Kalanchoe.jpg" alt="Kalanchoe">
-        <h3>Kalanchoe</h3>
-        <p>$170 MXN</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="comprar" class="comprar">
-    <h2>¿Listo para embellecer tus espacios?</h2>
-    <a href="#" class="btn-compra">Comprar Suculentas</a>
-  </section>
+    <section id="catalogo" class="catalogo">
+      <h2>Catálogo</h2>
+      <div class="productos">
+        <div class="producto">
+          <img src="imagenes/Echeveria.jpg" alt="Echeveria" loading="lazy">
+          <h3>Echeveria</h3>
+          <p>$150 MXN</p>
+        </div>
+        <div class="producto">
+          <img src="imagenes/Combo.jpg" alt="Combo de suculentas" loading="lazy">
+          <h3>Combo de suculentas</h3>
+          <p>$180 MXN</p>
+        </div>
+        <div class="producto">
+          <img src="imagenes/Kalanchoe.jpg" alt="Kalanchoe" loading="lazy">
+          <h3>Kalanchoe</h3>
+          <p>$170 MXN</p>
+        </div>
+      </div>
+    </section>
 
-  <footer>
+    <section id="comprar" class="comprar">
+      <h2>¿Listo para embellecer tus espacios?</h2>
+      <a href="#" class="btn btn--buy">Comprar Suculentas</a>
+    </section>
+  </main>
+
+  <footer class="footer">
     <p>© 2025 SucuElegans. Hecho con amor por plantas.</p>
   </footer>
+
+  <script>
+    // Toggle menú en móvil
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('nav--open');
+    });
+  </script>
 
 </body>
 </html>
